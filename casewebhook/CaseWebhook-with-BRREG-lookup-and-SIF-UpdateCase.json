@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1734422627722,
+    "description" : "Triggered by Webhook on case, BRREG lookup on custom fields and then an UpdateCase with BRREG details",
+    "identifier" : "CaseWebhook-with-BRREG-lookup-and-SIF-UpdateCase",
+    "lastModifiedTimestamp" : 1734422627722,
+    "name" : "CaseWebhook with BRREG lookup and SIF UpdateCase",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
