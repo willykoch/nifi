@@ -1,0 +1,2 @@
+# Case cloner with NiFi and SIF
+This flow will be triggered with the new webhook functionality in Public 360° when case status is changed to closed. Case is created, with correct metadata like contacts, then all documents with files are created.
