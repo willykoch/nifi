@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1736684844864,
+    "description" : "Same flow can be used from PNB to P360, but then with changes to how contacts are handled. In eARchive, it's all unregistered contacts.",
+    "identifier" : "Clone-closed-case-from-P360-to-eArchive",
+    "lastModifiedTimestamp" : 1736684844864,
+    "name" : "Clone closed case from P360 to eArchive",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
