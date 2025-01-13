@@ -5083,7 +5083,7 @@
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
-        "Replacement Value" : "{\n    \"parameter\": {\n        \"ImportedCaseNumber\": \"${CaseNumber} | ${filename}\",\n        \"StartDate\": \"${CreatedDate}\",\n        \"ClosedDate\": \"${LastChangedDate}\",\n        \"Title\": \"${Title}\",\n        \"Status\": \"recno:6\",\n        \"SubArchive\": \"recno:60001\",\n        \"CaseType\": \"recno:18\",\n        \"Notes\": \"#{P360URL}${URL}\",\n        \"Remarks\": [\n            {\n                \"Title\": \"P360 URL\",\n                \"Content\": \"#{P360URL}${URL}\",\n                \"RemarkType\": \"recno:5\"\n            }\n        ],\n        \"AdditionalFields\": [\n            {\n                \"Name\": \"UID\",\n                \"Value\": \"${UID}\"\n            },\n            {\n                \"Name\": \"UIDOrigin\",\n                \"Value\": \"${UIDOrigin}\"\n            }\n        ],\n  \t\t\"ExternalId\": {\n            \"Id\": \"${UID}\",\n            \"Type\": \"360\"\n        }\n    }\n}",
+        "Replacement Value" : "{\n    \"parameter\": {\n        \"ImportedCaseNumber\": \"${CaseNumber}\",\n        \"StartDate\": \"${CreatedDate}\",\n        \"ClosedDate\": \"${LastChangedDate}\",\n        \"Title\": \"${Title}\",\n        \"Status\": \"recno:6\",\n        \"SubArchive\": \"recno:60001\",\n        \"CaseType\": \"recno:18\",\n        \"Notes\": \"#{P360URL}${URL}\",\n        \"Remarks\": [\n            {\n                \"Title\": \"P360 URL\",\n                \"Content\": \"#{P360URL}${URL}\",\n                \"RemarkType\": \"recno:5\"\n            }\n        ],\n        \"AdditionalFields\": [\n            {\n                \"Name\": \"UID\",\n                \"Value\": \"${UID}\"\n            },\n            {\n                \"Name\": \"UIDOrigin\",\n                \"Value\": \"${UIDOrigin}\"\n            }\n        ],\n  \t\t\"ExternalId\": {\n            \"Id\": \"${UID}\",\n            \"Type\": \"360\"\n        }\n    }\n}",
         "Evaluation Mode" : "Entire text",
         "Line-by-Line Evaluation Mode" : "All",
         "Character Set" : "UTF-8",
@@ -6771,15 +6771,15 @@
         "Request Multipart Form-Data Filename Enabled" : "true",
         "Request Chunked Transfer-Encoding Enabled" : "false",
         "HTTP/2 Disabled" : "False",
-        "Connection Timeout" : "5 secs",
+        "Connection Timeout" : "3600 secs",
         "Response Cookie Strategy" : "DISABLED",
-        "Socket Read Timeout" : "15 secs",
+        "Socket Read Timeout" : "3600 secs",
         "Socket Idle Connections" : "5",
         "Request Body Enabled" : "true",
         "HTTP URL" : "#{eArchiveURL}/Biz/v2/api/call/SI.Data.RPC/SI.Data.RPC/FileService/UploadStream?filename=${filename}&fileformat=${Format}",
         "Socket Idle Timeout" : "5 mins",
         "Response Redirects Enabled" : "True",
-        "Socket Write Timeout" : "15 secs",
+        "Socket Write Timeout" : "3600 secs",
         "Response FlowFile Naming Strategy" : "RANDOM",
         "Response Cache Enabled" : "false",
         "Request Date Header Enabled" : "True",
@@ -8224,7 +8224,7 @@
         "Log level when file not found" : "ERROR",
         "Log level when permission denied" : "ERROR",
         "File to Fetch" : "/nifi/filestorage/clonecase/${filename}",
-        "Completion Strategy" : "None"
+        "Completion Strategy" : "Delete File"
       },
       "propertyDescriptors" : {
         "Move Conflict Strategy" : {
