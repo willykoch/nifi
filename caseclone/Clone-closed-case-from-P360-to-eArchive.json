@@ -290,7 +290,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "129a9416-771f-3bb8-8547-473c97350fae",
-        "name" : "FetchFile",
+        "name" : "Retrieve file from disk for file upload",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -307,7 +307,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "dc646872-f736-3fdd-a40b-dd04f77ec75f",
-        "name" : "PutFile",
+        "name" : "Save file to disk",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -338,36 +338,6 @@
         "groupId" : "flow-contents-group",
         "id" : "45a80f9b-0194-1000-cf0d-0bbb4b7bada9",
         "name" : "Set webhook JSON payload as attributes",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "05fe087c-5524-351e-9706-951bb5e89311",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "21ebd7d8-5216-34ca-a6a4-f68dfddee273",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5b00cf63-0194-1000-81cb-4cb60f80f66b",
-        "name" : "Set document metadata as attributes for CreateDocument",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -457,7 +427,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "dc646872-f736-3fdd-a40b-dd04f77ec75f",
-        "name" : "PutFile",
+        "name" : "Save file to disk",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -727,7 +697,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "129a9416-771f-3bb8-8547-473c97350fae",
-        "name" : "FetchFile",
+        "name" : "Retrieve file from disk for file upload",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1219,6 +1189,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "6bc1ef54-0194-1000-5b98-6e1bc4b80b9e",
+        "name" : "Payload get all P360 document metadata GetDocuments",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "37023694-fe47-3f2e-ace8-2175d747e3bb",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "5b00cf63-0194-1000-81cb-4cb60f80f66b",
+        "name" : "Set document metadata as attributes for CreateDocument",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "6009d721-0194-1000-ebac-5a4a18b90f02",
         "name" : "UploadStream to eArchive",
         "type" : "PROCESSOR"
@@ -1237,7 +1237,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "129a9416-771f-3bb8-8547-473c97350fae",
-        "name" : "FetchFile",
+        "name" : "Retrieve file from disk for file upload",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1279,25 +1279,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "dfbd1f61-0087-3b86-8946-bf23e56d152f",
+        "id" : "b240cb32-30dd-3735-8e38-c0b2b1df5b61",
         "name" : "Funnel",
         "type" : "FUNNEL"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "77cac351-e0d9-3306-9814-a97f2d2e93df",
+      "identifier" : "43309bff-7c2d-3ed7-aa7b-91243e91e5b7",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
+      "selectedRelationships" : [ "Failure" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "5b00cf63-0194-1000-81cb-4cb60f80f66b",
-        "name" : "Set document metadata as attributes for CreateDocument",
+        "id" : "6bc1ef53-0194-1000-81e6-265d4a7130d4",
+        "name" : "Get all P360 Document metadata",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1369,36 +1369,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "4bd73725-c67d-369b-be4c-7494ed449a20",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "88b93e43-a2da-3999-90f7-40bea34bc591",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "be16516e-6463-3d09-a9bb-66b4198ab5d6",
-        "name" : "Split Documents",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "5fe80e16-0194-1000-d88b-7aa4b2a65105",
         "name" : "Download file from P360",
         "type" : "PROCESSOR"
@@ -1447,37 +1417,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "c8ce2123-8958-31a7-9a6e-c17eb4b258fd",
-        "name" : "ExecuteScript",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "05fe087c-5524-351e-9706-951bb5e89311",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "5956ac0f-71e0-361d-8cb6-e400cfcdbb8e",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "original" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "be16516e-6463-3d09-a9bb-66b4198ab5d6",
-        "name" : "Split Documents",
+        "name" : "Wait 10 seconds so Case is created before documents",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1520,7 +1460,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "c8ce2123-8958-31a7-9a6e-c17eb4b258fd",
-        "name" : "ExecuteScript",
+        "name" : "Wait 10 seconds so Case is created before documents",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -1628,6 +1568,36 @@
         "groupId" : "flow-contents-group",
         "id" : "56522dea-0194-1000-027c-b9c03ef3bc77",
         "name" : "Payload CreateCase",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "6bc44301-0194-1000-35c4-686c3efc39c8",
+        "name" : "Set full document metadata as attributes for CreateDocument",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "73b9e51c-f43c-35a3-b578-7dc44cdec0e1",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "Response" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "6bc1ef53-0194-1000-81e6-265d4a7130d4",
+        "name" : "Get all P360 Document metadata",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1777,37 +1747,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "129a9416-771f-3bb8-8547-473c97350fae",
-        "name" : "FetchFile",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5b069749-0194-1000-84c7-99c7d1258bdb",
-        "name" : "Payload CreateDocument",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "9aea363f-bce3-3525-a3be-d99095dac8f9",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5b00cf63-0194-1000-81cb-4cb60f80f66b",
-        "name" : "Set document metadata as attributes for CreateDocument",
+        "name" : "Retrieve file from disk for file upload",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1880,7 +1820,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "dc646872-f736-3fdd-a40b-dd04f77ec75f",
-        "name" : "PutFile",
+        "name" : "Save file to disk",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -2059,6 +1999,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "29c2116d-48a1-30c5-9478-c70f57913f25",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "b3f786b6-b5db-367e-81a0-208a25fbdfec",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "Response" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "5b0d4ee2-0194-1000-9cea-d6687df952a6",
+        "name" : "SIF CreateDocument",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "9b46055a-fd71-3add-a8c1-34a1d1b5e3c3",
         "name" : "Funnel",
         "type" : "FUNNEL"
@@ -2119,26 +2089,56 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "5bb25bfa-0194-1000-d4ff-32c482272f1c",
-        "name" : "Payload get all P360 document metadata GetDocuments",
-        "type" : "PROCESSOR"
+        "id" : "c5a001a5-79e0-3207-92ed-eb6979b1b616",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "692c3b32-9394-3893-aaf6-e07dde89fc47",
+      "identifier" : "dac01e49-496a-3c5e-8ab4-f611bcca8b85",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
+      "selectedRelationships" : [ "matched" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ddb7d339-b366-3b1b-bd34-bfb6f3a64dd0",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
+        "id" : "6bc44301-0194-1000-35c4-686c3efc39c8",
+        "name" : "Set full document metadata as attributes for CreateDocument",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "5b069749-0194-1000-84c7-99c7d1258bdb",
+        "name" : "Payload CreateDocument",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "b060b3a3-dd51-3016-a1ac-51681d26e610",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "6bc44301-0194-1000-35c4-686c3efc39c8",
+        "name" : "Set full document metadata as attributes for CreateDocument",
+        "type" : "PROCESSOR"
       },
       "zIndex" : 0
     }, {
@@ -2359,36 +2359,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ddb7d339-b366-3b1b-bd34-bfb6f3a64dd0",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "bcc900c4-3140-37bb-99f2-8023505eaf92",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "Response" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5b0d4ee2-0194-1000-9cea-d6687df952a6",
-        "name" : "SIF CreateDocument",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "56522deb-0194-1000-4f3a-652a6cb8fb8c",
         "name" : "SIF CreateCase",
         "type" : "PROCESSOR"
@@ -2569,6 +2539,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "6bc1ef53-0194-1000-81e6-265d4a7130d4",
+        "name" : "Get all P360 Document metadata",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "a5020f73-1580-3620-9f22-a157916f24b0",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "6bc1ef54-0194-1000-5b98-6e1bc4b80b9e",
+        "name" : "Payload get all P360 document metadata GetDocuments",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "5d6b80cb-3b02-3f27-a9c1-6ecc9107ba1d",
         "name" : "Funnel",
         "type" : "FUNNEL"
@@ -2588,36 +2588,6 @@
         "groupId" : "flow-contents-group",
         "id" : "55952db2-0194-1000-0118-becda13a7de7",
         "name" : "SIF GetCases",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "c5a001a5-79e0-3207-92ed-eb6979b1b616",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "d076bd88-848e-38ec-8dfb-90cc62eb3621",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "Response" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5bb25bfb-0194-1000-4c2b-fe2db7a512aa",
-        "name" : "Get all P360 Document metadata",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -2926,8 +2896,16 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "c5a001a5-79e0-3207-92ed-eb6979b1b616",
       "position" : {
-        "x" : -47.55555555555566,
-        "y" : 1904.6667022705078
+        "x" : 664.0,
+        "y" : 1056.0
+      }
+    }, {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "29c2116d-48a1-30c5-9478-c70f57913f25",
+      "position" : {
+        "x" : -147.61106062240583,
+        "y" : 1377.338285194973
       }
     }, {
       "componentType" : "FUNNEL",
@@ -2942,8 +2920,8 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "c1237f1d-dc7f-3d06-9e5a-662b339ec8ed",
       "position" : {
-        "x" : 488.0,
-        "y" : 1040.0
+        "x" : 224.0,
+        "y" : 1264.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -3016,14 +2994,6 @@
       "position" : {
         "x" : 660.5,
         "y" : 3637.166763305664
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "05fe087c-5524-351e-9706-951bb5e89311",
-      "position" : {
-        "x" : 720.0,
-        "y" : 624.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -3132,14 +3102,6 @@
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "ddb7d339-b366-3b1b-bd34-bfb6f3a64dd0",
-      "position" : {
-        "x" : -72.0,
-        "y" : 1320.0
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
       "identifier" : "9b46055a-fd71-3add-a8c1-34a1d1b5e3c3",
       "position" : {
         "x" : -1294.5,
@@ -3164,10 +3126,10 @@
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "4bd73725-c67d-369b-be4c-7494ed449a20",
+      "identifier" : "b240cb32-30dd-3735-8e38-c0b2b1df5b61",
       "position" : {
-        "x" : 368.0,
-        "y" : 544.0
+        "x" : 624.0,
+        "y" : 832.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -3204,14 +3166,6 @@
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "dfbd1f61-0087-3b86-8946-bf23e56d152f",
-      "position" : {
-        "x" : -440.0,
-        "y" : 624.0
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
       "identifier" : "d50d1249-b3ed-364b-9efe-7f7e76de2d21",
       "position" : {
         "x" : 358.4786321078468,
@@ -3222,16 +3176,16 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "97014061-0128-387a-b045-ca81cca84bc5",
       "position" : {
-        "x" : 496.0,
-        "y" : 1696.0
+        "x" : 1464.0,
+        "y" : 1704.0
       }
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "d4a25387-edbb-32df-b08f-27a428659b71",
       "position" : {
-        "x" : -560.0,
-        "y" : 2424.0
+        "x" : -504.0,
+        "y" : 2416.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -3299,8 +3253,8 @@
       "identifier" : "374e983a-50c2-3d17-9e80-44d0650ddcb1",
       "label" : "Create all documents on the case",
       "position" : {
-        "x" : -368.0,
-        "y" : 280.0
+        "x" : -376.0,
+        "y" : 504.0
       },
       "style" : {
         "font-size" : "24px"
@@ -3310,17 +3264,17 @@
     }, {
       "componentType" : "LABEL",
       "groupIdentifier" : "flow-contents-group",
-      "height" : 2352.0,
+      "height" : 2472.0,
       "identifier" : "82cb9e72-ec6e-3ffc-9d11-ae7fdcf27dd2",
       "label" : "Process and upload files to each document",
       "position" : {
-        "x" : -520.0,
-        "y" : 2200.0
+        "x" : -528.0,
+        "y" : 1912.0
       },
       "style" : {
         "font-size" : "24px"
       },
-      "width" : 1384.0,
+      "width" : 1376.0,
       "zIndex" : 0
     }, {
       "componentType" : "LABEL",
@@ -3329,7 +3283,7 @@
       "identifier" : "248ed64d-238b-32f2-931e-7f54e2fad247",
       "label" : "Get complete document details for each document in P360",
       "position" : {
-        "x" : -424.0,
+        "x" : 912.0,
         "y" : 1392.0
       },
       "style" : {
@@ -3367,12 +3321,12 @@
       "name" : "Payload CreateDocument",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -112.0,
-        "y" : 824.0
+        "x" : -336.0,
+        "y" : 1016.0
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
-        "Replacement Value" : "{\n    \"parameter\": {\n        \"Title\": \"${DocumentTitle}\",\n        \"ImportedDocumentNumber\": \"${DocumentNumber}\",\n        \"Category\": \"recno:${DocumentCategoryRecno}\",\n        \"Status\": \"recno:6\",\n\t\t\"Archive\":\"recno:17\",\n        \"CaseExternalId\": {\n            \"Id\": \"${UID}\",\n            \"Type\": \"360\"\n        },\n \t\t\"ExternalId\": {\n            \"Id\": \"${UID}_${DocRecno}\",\n            \"Type\": \"360\"\n        }\n    }\n}",
+        "Replacement Value" : "{\n    \"parameter\": {\n        \"Title\": \"${DocumentTitle}\",\n        \"ImportedDocumentNumber\": \"${DocumentNumber}\",\n        \"Category\": \"recno:${DocumentCategoryRecno}\",\n        \"Status\": \"recno:6\",\n\t\t\"Archive\":\"recno:17\",\n        \"CaseExternalId\": {\n            \"Id\": \"${UID}\",\n            \"Type\": \"360\"\n        },\n \t\t\"ExternalId\": {\n            \"Id\": \"${UID}_${DocRecno}\",\n            \"Type\": \"360\"\n        },\n        \"AdditionalFields\": [\n            {\n                \"Name\": \"UID\",\n                \"Value\": \"${DocUID}\"\n            },\n            {\n                \"Name\": \"UIDOrigin\",\n                \"Value\": \"${DocUIDOrigin}\"\n            }\n        ]\n    }\n}",
         "Evaluation Mode" : "Entire text",
         "Line-by-Line Evaluation Mode" : "All",
         "Character Set" : "UTF-8",
@@ -3625,10 +3579,10 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "dc646872-f736-3fdd-a40b-dd04f77ec75f",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "PutFile",
+      "name" : "Save file to disk",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -120.0,
+        "x" : -128.0,
         "y" : 3120.0
       },
       "properties" : {
@@ -4262,6 +4216,320 @@
       "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "No Retry", "Retry", "Original" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.1.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "6bc1ef53-0194-1000-81e6-265d4a7130d4",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Get all P360 Document metadata",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 64.0,
+        "y" : 792.0
+      },
+      "properties" : {
+        "Request Content-Encoding" : "DISABLED",
+        "Request Multipart Form-Data Filename Enabled" : "true",
+        "Request Chunked Transfer-Encoding Enabled" : "false",
+        "HTTP/2 Disabled" : "False",
+        "Connection Timeout" : "3600 secs",
+        "Response Cookie Strategy" : "DISABLED",
+        "Socket Read Timeout" : "300 secs",
+        "Socket Idle Connections" : "5",
+        "Request Body Enabled" : "true",
+        "HTTP URL" : "#{P360URL}/Biz/v2/api/call/SI.Data.RPC/SI.Data.RPC/DocumentService/GetDocuments",
+        "Socket Idle Timeout" : "5 mins",
+        "Response Redirects Enabled" : "True",
+        "Socket Write Timeout" : "300 secs",
+        "Response FlowFile Naming Strategy" : "RANDOM",
+        "Response Cache Enabled" : "false",
+        "Request Date Header Enabled" : "True",
+        "Request Failure Penalization Enabled" : "false",
+        "Response Body Attribute Size" : "256",
+        "Response Generation Required" : "false",
+        "Response Header Request Attributes Enabled" : "false",
+        "HTTP Method" : "POST",
+        "Request Content-Type" : "application/json",
+        "Request Digest Authentication Enabled" : "false",
+        "Response Cache Size" : "10MB",
+        "Response Body Ignored" : "false"
+      },
+      "propertyDescriptors" : {
+        "Request Content-Encoding" : {
+          "displayName" : "Request Content-Encoding",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Content-Encoding",
+          "sensitive" : false
+        },
+        "proxy-configuration-service" : {
+          "displayName" : "Proxy Configuration Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "proxy-configuration-service",
+          "sensitive" : false
+        },
+        "Request Multipart Form-Data Filename Enabled" : {
+          "displayName" : "Request Multipart Form-Data Filename Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Multipart Form-Data Filename Enabled",
+          "sensitive" : false
+        },
+        "Request Chunked Transfer-Encoding Enabled" : {
+          "displayName" : "Request Chunked Transfer-Encoding Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Chunked Transfer-Encoding Enabled",
+          "sensitive" : false
+        },
+        "Response Header Request Attributes Prefix" : {
+          "displayName" : "Response Header Request Attributes Prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Header Request Attributes Prefix",
+          "sensitive" : false
+        },
+        "HTTP/2 Disabled" : {
+          "displayName" : "HTTP/2 Disabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "HTTP/2 Disabled",
+          "sensitive" : false
+        },
+        "Connection Timeout" : {
+          "displayName" : "Connection Timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Connection Timeout",
+          "sensitive" : false
+        },
+        "Response Cookie Strategy" : {
+          "displayName" : "Response Cookie Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Cookie Strategy",
+          "sensitive" : false
+        },
+        "Authorization" : {
+          "displayName" : "Authorization",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "Authorization",
+          "sensitive" : true
+        },
+        "Request Password" : {
+          "displayName" : "Request Password",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Password",
+          "sensitive" : true
+        },
+        "Socket Read Timeout" : {
+          "displayName" : "Socket Read Timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Socket Read Timeout",
+          "sensitive" : false
+        },
+        "Socket Idle Connections" : {
+          "displayName" : "Socket Idle Connections",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Socket Idle Connections",
+          "sensitive" : false
+        },
+        "Request Body Enabled" : {
+          "displayName" : "Request Body Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Body Enabled",
+          "sensitive" : false
+        },
+        "HTTP URL" : {
+          "displayName" : "HTTP URL",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "HTTP URL",
+          "sensitive" : false
+        },
+        "Request OAuth2 Access Token Provider" : {
+          "displayName" : "Request OAuth2 Access Token Provider",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "Request OAuth2 Access Token Provider",
+          "sensitive" : false
+        },
+        "Socket Idle Timeout" : {
+          "displayName" : "Socket Idle Timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Socket Idle Timeout",
+          "sensitive" : false
+        },
+        "Response Redirects Enabled" : {
+          "displayName" : "Response Redirects Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Redirects Enabled",
+          "sensitive" : false
+        },
+        "Socket Write Timeout" : {
+          "displayName" : "Socket Write Timeout",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Socket Write Timeout",
+          "sensitive" : false
+        },
+        "Request Header Attributes Pattern" : {
+          "displayName" : "Request Header Attributes Pattern",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Header Attributes Pattern",
+          "sensitive" : false
+        },
+        "Response FlowFile Naming Strategy" : {
+          "displayName" : "Response FlowFile Naming Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response FlowFile Naming Strategy",
+          "sensitive" : false
+        },
+        "Response Cache Enabled" : {
+          "displayName" : "Response Cache Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Cache Enabled",
+          "sensitive" : false
+        },
+        "Request Date Header Enabled" : {
+          "displayName" : "Request Date Header Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Date Header Enabled",
+          "sensitive" : false
+        },
+        "Request Failure Penalization Enabled" : {
+          "displayName" : "Request Failure Penalization Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Failure Penalization Enabled",
+          "sensitive" : false
+        },
+        "Response Body Attribute Size" : {
+          "displayName" : "Response Body Attribute Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Body Attribute Size",
+          "sensitive" : false
+        },
+        "SSL Context Service" : {
+          "displayName" : "SSL Context Service",
+          "dynamic" : false,
+          "identifiesControllerService" : true,
+          "name" : "SSL Context Service",
+          "sensitive" : false
+        },
+        "Response Generation Required" : {
+          "displayName" : "Response Generation Required",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Generation Required",
+          "sensitive" : false
+        },
+        "Request User-Agent" : {
+          "displayName" : "Request User-Agent",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request User-Agent",
+          "sensitive" : false
+        },
+        "Response Header Request Attributes Enabled" : {
+          "displayName" : "Response Header Request Attributes Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Header Request Attributes Enabled",
+          "sensitive" : false
+        },
+        "HTTP Method" : {
+          "displayName" : "HTTP Method",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "HTTP Method",
+          "sensitive" : false
+        },
+        "Request Username" : {
+          "displayName" : "Request Username",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Username",
+          "sensitive" : false
+        },
+        "Request Content-Type" : {
+          "displayName" : "Request Content-Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Content-Type",
+          "sensitive" : false
+        },
+        "Response Body Attribute Name" : {
+          "displayName" : "Response Body Attribute Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Body Attribute Name",
+          "sensitive" : false
+        },
+        "Request Digest Authentication Enabled" : {
+          "displayName" : "Request Digest Authentication Enabled",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Digest Authentication Enabled",
+          "sensitive" : false
+        },
+        "Request Multipart Form-Data Name" : {
+          "displayName" : "Request Multipart Form-Data Name",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Multipart Form-Data Name",
+          "sensitive" : false
+        },
+        "Response Cache Size" : {
+          "displayName" : "Response Cache Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Cache Size",
+          "sensitive" : false
+        },
+        "Response Body Ignored" : {
+          "displayName" : "Response Body Ignored",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Body Ignored",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : {
+        "background-color" : "#9cd0cc"
+      },
+      "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "failure" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -4707,7 +4975,7 @@
       "name" : "Add file to eArchive document with UpdateDocument",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -136.0,
+        "x" : -128.0,
         "y" : 4080.0
       },
       "properties" : {
@@ -5102,7 +5370,7 @@
       "name" : "Payload UpdateDocument",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -136.0,
+        "x" : -128.0,
         "y" : 3880.0
       },
       "properties" : {
@@ -5207,7 +5475,7 @@
       "name" : "Set File attributes",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -160.0,
+        "x" : -128.0,
         "y" : 2360.0
       },
       "properties" : {
@@ -5703,7 +5971,7 @@
       "name" : "Fix filename for storing file on disk",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -136.0,
+        "x" : -128.0,
         "y" : 2928.0
       },
       "properties" : {
@@ -5758,6 +6026,113 @@
       "type" : "org.apache.nifi.processors.attributes.UpdateAttribute",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "failure" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.1.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "6bc1ef54-0194-1000-5b98-6e1bc4b80b9e",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Payload get all P360 document metadata GetDocuments",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 352.0,
+        "y" : 568.0
+      },
+      "properties" : {
+        "Regular Expression" : "(?s)(^.*$)",
+        "Replacement Value" : "{\n  \"parameter\": {\n    \"DocumentNumber\": \"${DocumentNumber}\",\n    \"IncludeFiles\": true,\n\t\"IncludeFileData\":false\n  }\n}",
+        "Evaluation Mode" : "Entire text",
+        "Line-by-Line Evaluation Mode" : "All",
+        "Character Set" : "UTF-8",
+        "Maximum Buffer Size" : "1 MB",
+        "Replacement Strategy" : "Always Replace"
+      },
+      "propertyDescriptors" : {
+        "Regular Expression" : {
+          "displayName" : "Search Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Regular Expression",
+          "sensitive" : false
+        },
+        "Replacement Value" : {
+          "displayName" : "Replacement Value",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Replacement Value",
+          "sensitive" : false
+        },
+        "Evaluation Mode" : {
+          "displayName" : "Evaluation Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Evaluation Mode",
+          "sensitive" : false
+        },
+        "Text to Prepend" : {
+          "displayName" : "Text to Prepend",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Text to Prepend",
+          "sensitive" : false
+        },
+        "Line-by-Line Evaluation Mode" : {
+          "displayName" : "Line-by-Line Evaluation Mode",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Line-by-Line Evaluation Mode",
+          "sensitive" : false
+        },
+        "Character Set" : {
+          "displayName" : "Character Set",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Character Set",
+          "sensitive" : false
+        },
+        "Maximum Buffer Size" : {
+          "displayName" : "Maximum Buffer Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Buffer Size",
+          "sensitive" : false
+        },
+        "Replacement Strategy" : {
+          "displayName" : "Replacement Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Replacement Strategy",
+          "sensitive" : false
+        },
+        "Text to Append" : {
+          "displayName" : "Text to Append",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Text to Append",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : {
+        "background-color" : "#9cd0cc"
+      },
+      "type" : "org.apache.nifi.processors.standard.ReplaceText",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "No Retry", "Retry", "Original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -5776,8 +6151,8 @@
       "name" : "Get all P360 Document metadata",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -224.0,
-        "y" : 1696.0
+        "x" : 1016.0,
+        "y" : 1592.0
       },
       "properties" : {
         "Request Content-Encoding" : "DISABLED",
@@ -6238,7 +6613,7 @@
       "name" : "Payload GetFile",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -136.0,
+        "x" : -128.0,
         "y" : 2560.0
       },
       "properties" : {
@@ -6416,7 +6791,7 @@
       "type" : "org.apache.nifi.processors.standard.GenerateFlowFile",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ ],
+      "autoTerminatedRelationships" : [ "original", "failure" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -6434,8 +6809,8 @@
       "name" : "Split Documents",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : 128.0,
-        "y" : 312.0
+        "x" : 344.0,
+        "y" : 328.0
       },
       "properties" : {
         "Max String Length" : "20 MB",
@@ -6953,6 +7328,129 @@
       "type" : "org.apache.nifi.processors.standard.InvokeHTTP",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "failure", "unmatched" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.1.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "6bc44301-0194-1000-35c4-686c3efc39c8",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Set full document metadata as attributes for CreateDocument",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : 72.0,
+        "y" : 1016.0
+      },
+      "properties" : {
+        "DocumentCategoryRecno" : "$.Documents[0].Category.Recno",
+        "Destination" : "flowfile-attribute",
+        "DocUIDOrigin" : "$.Documents[0].UIDOrigin",
+        "Max String Length" : "20 MB",
+        "Return Type" : "auto-detect",
+        "Null Value Representation" : "empty string",
+        "DocumentTitle" : "$.Documents[0].Title",
+        "DocumentNumber" : "$.Documents[0].DocumentNumber",
+        "DocUID" : "$.Documents[0].UID",
+        "Path Not Found Behavior" : "ignore",
+        "DocRecno" : "$.Documents[0].Recno"
+      },
+      "propertyDescriptors" : {
+        "DocumentCategoryRecno" : {
+          "displayName" : "DocumentCategoryRecno",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "DocumentCategoryRecno",
+          "sensitive" : false
+        },
+        "Destination" : {
+          "displayName" : "Destination",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Destination",
+          "sensitive" : false
+        },
+        "DocUIDOrigin" : {
+          "displayName" : "DocUIDOrigin",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "DocUIDOrigin",
+          "sensitive" : false
+        },
+        "Max String Length" : {
+          "displayName" : "Max String Length",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Max String Length",
+          "sensitive" : false
+        },
+        "Return Type" : {
+          "displayName" : "Return Type",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Return Type",
+          "sensitive" : false
+        },
+        "Null Value Representation" : {
+          "displayName" : "Null Value Representation",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Null Value Representation",
+          "sensitive" : false
+        },
+        "DocumentTitle" : {
+          "displayName" : "DocumentTitle",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "DocumentTitle",
+          "sensitive" : false
+        },
+        "DocumentNumber" : {
+          "displayName" : "DocumentNumber",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "DocumentNumber",
+          "sensitive" : false
+        },
+        "DocUID" : {
+          "displayName" : "DocUID",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "DocUID",
+          "sensitive" : false
+        },
+        "Path Not Found Behavior" : {
+          "displayName" : "Path Not Found Behavior",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Path Not Found Behavior",
+          "sensitive" : false
+        },
+        "DocRecno" : {
+          "displayName" : "DocRecno",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "DocRecno",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 0,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.EvaluateJsonPath",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ "No Retry", "Retry", "Original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
@@ -6971,8 +7469,8 @@
       "name" : "SIF CreateDocument",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -168.0,
-        "y" : 1048.0
+        "x" : -336.0,
+        "y" : 1216.0
       },
       "properties" : {
         "Request Content-Encoding" : "DISABLED",
@@ -7761,7 +8259,7 @@
       "name" : "UploadStream to eArchive",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -136.0,
+        "x" : -128.0,
         "y" : 3536.0
       },
       "properties" : {
@@ -8385,7 +8883,7 @@
       "name" : "Download file from P360",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -136.0,
+        "x" : -128.0,
         "y" : 2752.0
       },
       "properties" : {
@@ -8876,8 +9374,8 @@
       "name" : "Payload get all P360 document metadata GetDocuments",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -216.0,
-        "y" : 1488.0
+        "x" : 976.0,
+        "y" : 1504.0
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
@@ -8963,7 +9461,7 @@
       "type" : "org.apache.nifi.processors.standard.ReplaceText",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ ],
+      "autoTerminatedRelationships" : [ "failure", "unmatched" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -8981,28 +9479,18 @@
       "name" : "Set document metadata as attributes for CreateDocument",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -120.0,
-        "y" : 608.0
+        "x" : -328.0,
+        "y" : 568.0
       },
       "properties" : {
-        "DocumentCategoryRecno" : "$.Category.Recno",
         "Destination" : "flowfile-attribute",
         "Max String Length" : "20 MB",
         "Return Type" : "auto-detect",
         "Null Value Representation" : "empty string",
-        "DocumentTitle" : "$.DocumentTitle",
         "DocumentNumber" : "$.DocumentNumber",
-        "Path Not Found Behavior" : "ignore",
-        "DocRecno" : "$.Recno"
+        "Path Not Found Behavior" : "ignore"
       },
       "propertyDescriptors" : {
-        "DocumentCategoryRecno" : {
-          "displayName" : "DocumentCategoryRecno",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "DocumentCategoryRecno",
-          "sensitive" : false
-        },
         "Destination" : {
           "displayName" : "Destination",
           "dynamic" : false,
@@ -9031,13 +9519,6 @@
           "name" : "Null Value Representation",
           "sensitive" : false
         },
-        "DocumentTitle" : {
-          "displayName" : "DocumentTitle",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "DocumentTitle",
-          "sensitive" : false
-        },
         "DocumentNumber" : {
           "displayName" : "DocumentNumber",
           "dynamic" : true,
@@ -9050,13 +9531,6 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Path Not Found Behavior",
-          "sensitive" : false
-        },
-        "DocRecno" : {
-          "displayName" : "DocRecno",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "DocRecno",
           "sensitive" : false
         }
       },
@@ -9390,7 +9864,7 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "c8ce2123-8958-31a7-9a6e-c17eb4b258fd",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "ExecuteScript",
+      "name" : "Wait 10 seconds so Case is created before documents",
       "penaltyDuration" : "10 sec",
       "position" : {
         "x" : -336.0,
@@ -9701,10 +10175,10 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "129a9416-771f-3bb8-8547-473c97350fae",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "FetchFile",
+      "name" : "Retrieve file from disk for file upload",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -120.0,
+        "x" : -128.0,
         "y" : 3360.0
       },
       "properties" : {
