@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1742203877380,
+    "description" : "Flow to detect actual file format and fix file extensions stored in dfv_fileversion, using both Tika and IdentifyMimeType",
+    "identifier" : "Fix-incorrect-file-extensions",
+    "lastModifiedTimestamp" : 1742203877380,
+    "name" : "Fix incorrect file extensions",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
