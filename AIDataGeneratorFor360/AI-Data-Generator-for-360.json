@@ -97,67 +97,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "1f8feedb-0196-1000-7270-38e1b991e50a",
-        "name" : "RouteOnAttribute",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d6018f85-5e68-358b-9e1f-f85b412c0cf4",
-        "name" : "SplitJson",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "c2f99271-f56e-3716-a080-291f7e1275dd",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "9675158f-2f8f-369b-bbdd-78d00ee9fc45",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "366b7487-eb5f-304e-9ea9-e5f0ea38f998",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b3f40305-4597-306d-956c-95fb088d6e3a",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "original" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d6018f85-5e68-358b-9e1f-f85b412c0cf4",
-        "name" : "SplitJson",
+        "name" : "Process SIF response",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -175,127 +115,7 @@
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "2889d450-eb30-3c3d-a69d-452021b432da",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "b7784c30-ce99-39d1-ae2a-067cbdf189f9",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "1f8d7c54-0196-1000-905e-c4b683435a05",
-        "name" : "Process SIF response",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "22cd555d-47c8-3e99-afce-6dddc4b7ba48",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "e1365f3d-cbc6-3c9d-b040-f8f391fc054b",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "e2d96191-ea95-33ca-9693-bc07292eb927",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "f8a068b8-76c3-36f0-9a07-3554e3e82d53",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "split" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "d6018f85-5e68-358b-9e1f-f85b412c0cf4",
-        "name" : "SplitJson",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "1f59d2e1-0196-1000-343c-04aa1c660c58",
-        "name" : "Payload CreateCase",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "11e13e82-5695-3500-a759-b2274038af0e",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5dc59839-17dc-38d6-8980-c89427fa1402",
-        "name" : "Set case attributes",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "9675158f-2f8f-369b-bbdd-78d00ee9fc45",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "7b9be4de-fae2-309e-b64e-900cec4d7055",
+      "identifier" : "3f45ac29-b77e-3b51-9aeb-06952e2b3659",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
@@ -306,8 +126,8 @@
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "6651b34c-0471-31cc-bebb-abd7edf1e9fd",
-        "name" : "ConvertRecord",
+        "id" : "f62492f2-47c2-35a5-b0b6-cc2490947a56",
+        "name" : "Get CSV file with AI generated data",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -349,55 +169,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "5dc59839-17dc-38d6-8980-c89427fa1402",
-        "name" : "Set case attributes",
+        "id" : "1f8d7c54-0196-1000-905e-c4b683435a05",
+        "name" : "Process SIF response",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "fb060a70-37b5-3d21-aa4e-8412a714fe7d",
+      "identifier" : "cfa5c9c9-d6a9-3c1a-bfd2-40092eba69ec",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "" ],
+      "selectedRelationships" : [ "Response" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "e2d96191-ea95-33ca-9693-bc07292eb927",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "b7784c30-ce99-39d1-ae2a-067cbdf189f9",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "4ebae2ee-9339-300d-a388-28f4f83d0302",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "f62492f2-47c2-35a5-b0b6-cc2490947a56",
-        "name" : "GetFile",
+        "id" : "1f59d2e0-0196-1000-29b9-d9e41f7e667a",
+        "name" : "SIF CreateCase",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -457,7 +247,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "1f8feedb-0196-1000-7270-38e1b991e50a",
-        "name" : "RouteOnAttribute",
+        "name" : "Process SIF response",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -469,25 +259,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "e1365f3d-cbc6-3c9d-b040-f8f391fc054b",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
+        "id" : "d6018f85-5e68-358b-9e1f-f85b412c0cf4",
+        "name" : "SplitJson",
+        "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "13d6d6f8-a5b8-3c6d-9f66-4009969098bb",
+      "identifier" : "ddf40594-3c29-38c3-8789-c877f60a38ba",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "Response" ],
+      "selectedRelationships" : [ "success" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "1f59d2e0-0196-1000-29b9-d9e41f7e667a",
-        "name" : "SIF CreateCase",
+        "id" : "6651b34c-0471-31cc-bebb-abd7edf1e9fd",
+        "name" : "ConvertRecord",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -577,7 +367,37 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "1f8feedb-0196-1000-7270-38e1b991e50a",
-        "name" : "RouteOnAttribute",
+        "name" : "Process SIF response",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "1f59d2e1-0196-1000-343c-04aa1c660c58",
+        "name" : "Payload CreateCase",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "e32a785a-8c6c-3079-adbc-777bb43e6ea4",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "matched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "5dc59839-17dc-38d6-8980-c89427fa1402",
+        "name" : "Set case attributes",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -590,7 +410,7 @@
         "comments" : "",
         "groupId" : "flow-contents-group",
         "id" : "1f8feedb-0196-1000-7270-38e1b991e50a",
-        "name" : "RouteOnAttribute",
+        "name" : "Process SIF response",
         "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
@@ -619,25 +439,25 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "4cf201d4-2934-3197-bf17-120431fe81d1",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
+        "id" : "5dc59839-17dc-38d6-8980-c89427fa1402",
+        "name" : "Set case attributes",
+        "type" : "PROCESSOR"
       },
       "flowFileExpiration" : "0 sec",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "7226a7c8-679b-3f4a-aa74-1ff892324464",
+      "identifier" : "85624963-3d78-3e21-993f-3da7907899de",
       "labelIndex" : 0,
       "loadBalanceCompression" : "DO_NOT_COMPRESS",
       "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
       "name" : "",
       "partitioningAttribute" : "",
       "prioritizers" : [ ],
-      "selectedRelationships" : [ "failure", "unmatched" ],
+      "selectedRelationships" : [ "split" ],
       "source" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "5dc59839-17dc-38d6-8980-c89427fa1402",
-        "name" : "Set case attributes",
+        "id" : "d6018f85-5e68-358b-9e1f-f85b412c0cf4",
+        "name" : "SplitJson",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -1190,34 +1010,18 @@
     "funnels" : [ {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "366b7487-eb5f-304e-9ea9-e5f0ea38f998",
-      "position" : {
-        "x" : -246.3231197771588,
-        "y" : 784.75
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "e1365f3d-cbc6-3c9d-b040-f8f391fc054b",
-      "position" : {
-        "x" : 49.0,
-        "y" : 1563.5
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
       "identifier" : "11179682-6439-38ad-bf11-b4f582a23f6b",
       "position" : {
-        "x" : 332.0,
-        "y" : 1432.5
+        "x" : 512.0,
+        "y" : 1416.0
       }
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "4cf201d4-2934-3197-bf17-120431fe81d1",
+      "identifier" : "4cb9f7e5-19d3-34fd-8f11-c7c9505babb9",
       "position" : {
-        "x" : -320.0,
-        "y" : 1072.0
+        "x" : 520.0,
+        "y" : 336.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -1230,42 +1034,18 @@
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "9675158f-2f8f-369b-bbdd-78d00ee9fc45",
-      "position" : {
-        "x" : 0.0,
-        "y" : 576.0
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "4cb9f7e5-19d3-34fd-8f11-c7c9505babb9",
-      "position" : {
-        "x" : 393.0,
-        "y" : 336.5
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "e2d96191-ea95-33ca-9693-bc07292eb927",
-      "position" : {
-        "x" : 0.0,
-        "y" : 936.0
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
       "identifier" : "4d9649fc-d0b8-32fa-9593-80b81eba0c9d",
       "position" : {
-        "x" : 352.0,
-        "y" : 752.0
+        "x" : 512.0,
+        "y" : 616.0
       }
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "0f5a4653-c7a0-3b14-93cd-5ddf02d89d98",
       "position" : {
-        "x" : -328.0,
-        "y" : 1224.0
+        "x" : 512.0,
+        "y" : 1128.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -1278,18 +1058,10 @@
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b7784c30-ce99-39d1-ae2a-067cbdf189f9",
-      "position" : {
-        "x" : -8.0,
-        "y" : 72.0
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
       "identifier" : "34cd826a-3bba-3b1c-bbb3-b5b3d7e84ccd",
       "position" : {
-        "x" : 467.22033898305085,
-        "y" : 1868.75
+        "x" : 536.0,
+        "y" : 1864.0
       }
     } ],
     "identifier" : "flow-contents-group",
@@ -1305,7 +1077,7 @@
     },
     "processGroups" : [ ],
     "processors" : [ {
-      "autoTerminatedRelationships" : [ ],
+      "autoTerminatedRelationships" : [ "original" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1323,8 +1095,8 @@
       "name" : "SplitJson",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -128.0,
-        "y" : 712.0
+        "x" : -136.0,
+        "y" : 576.0
       },
       "properties" : {
         "Max String Length" : "20 MB",
@@ -1382,7 +1154,7 @@
       "name" : "SIF CreateCase",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -112.0,
+        "x" : -136.0,
         "y" : 1376.0
       },
       "properties" : {
@@ -1694,7 +1466,7 @@
       "name" : "ConvertRecord",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -144.0,
+        "x" : -136.0,
         "y" : 312.0
       },
       "properties" : {
@@ -1735,7 +1507,7 @@
       "type" : "org.apache.nifi.processors.standard.ConvertRecord",
       "yieldDuration" : "1 sec"
     }, {
-      "autoTerminatedRelationships" : [ ],
+      "autoTerminatedRelationships" : [ "failure", "unmatched" ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
@@ -1753,8 +1525,8 @@
       "name" : "Set case attributes",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -120.0,
-        "y" : 1016.0
+        "x" : -136.0,
+        "y" : 840.0
       },
       "properties" : {
         "Destination" : "flowfile-attribute",
@@ -1849,11 +1621,11 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "1f8feedb-0196-1000-7270-38e1b991e50a",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "RouteOnAttribute",
+      "name" : "Process SIF response",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -112.0,
-        "y" : 1816.0
+        "x" : -136.0,
+        "y" : 1840.0
       },
       "properties" : {
         "Routing Strategy" : "Route to Property name",
@@ -1911,8 +1683,8 @@
       "name" : "Process SIF response",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -104.0,
-        "y" : 1648.0
+        "x" : -136.0,
+        "y" : 1616.0
       },
       "properties" : {
         "successResponse" : "$.Successful",
@@ -2007,10 +1779,10 @@
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "f62492f2-47c2-35a5-b0b6-cc2490947a56",
       "maxBackoffPeriod" : "10 mins",
-      "name" : "GetFile",
+      "name" : "Get CSV file with AI generated data",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -160.0,
+        "x" : -136.0,
         "y" : -160.0
       },
       "properties" : {
@@ -2138,8 +1910,8 @@
       "name" : "Payload CreateCase",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -128.0,
-        "y" : 1192.0
+        "x" : -136.0,
+        "y" : 1112.0
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
@@ -2229,49 +2001,6 @@
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.1.0"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "e7d74493-0f2d-352d-b2e9-615465e9161c",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "RouteOnAttribute",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -584.0,
-        "y" : 1816.0
-      },
-      "properties" : {
-        "Routing Strategy" : "Route to Property name"
-      },
-      "propertyDescriptors" : {
-        "Routing Strategy" : {
-          "displayName" : "Routing Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Routing Strategy",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
         "artifact" : "nifi-update-attribute-nar",
         "group" : "org.apache.nifi",
         "version" : "2.1.0"
@@ -2286,8 +2015,8 @@
       "name" : "UpdateAttribute",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -144.0,
-        "y" : 160.0
+        "x" : -136.0,
+        "y" : 112.0
       },
       "properties" : {
         "Store State" : "Do not store state",
