@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1744288486985,
+    "description" : "Use AI to generate realistic titles for case, document and file data in 360 using SIF. Used for customer demo and test purposes.",
+    "identifier" : "AI-Data-Generator-for-360",
+    "lastModifiedTimestamp" : 1744288486985,
+    "name" : "AI Data Generator for 360",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
