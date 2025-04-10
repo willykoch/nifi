@@ -1,0 +1,11 @@
+{
+  "flow" : {
+    "createdTimestamp" : 1744288593599,
+    "description" : "",
+    "identifier" : "Scan-QR-code-split",
+    "lastModifiedTimestamp" : 1744288593599,
+    "name" : "Scan QR code split",
+    "versionCount" : 0
+  },
+  "latest" : false
+}
