@@ -1,10 +1,5 @@
 {
-  "externalControllerServices" : {
-    "cd9ca43e-913b-3412-ab63-81476f4b9e6f" : {
-      "identifier" : "cd9ca43e-913b-3412-ab63-81476f4b9e6f",
-      "name" : "StandardHttpContextMap"
-    }
-  },
+  "externalControllerServices" : { },
   "flow" : {
     "createdTimestamp" : 1734422627722,
     "description" : "Triggered by Webhook on case, BRREG lookup on custom fields and then an UpdateCase with BRREG details",
@@ -174,6 +169,36 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
+        "id" : "c1b57a80-e537-3be1-ac74-fc722be203cf",
+        "name" : "Funnel",
+        "type" : "FUNNEL"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "2e514f89-1d39-3654-9883-f684fcd3b17d",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "unmatched" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "5873e9a3-82fc-320e-b4fc-c99be210567f",
+        "name" : "Set attributes from BRREG response",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
         "id" : "51246b2c-4b31-34ad-9f82-cdf24ace16d5",
         "name" : "Funnel",
         "type" : "FUNNEL"
@@ -223,36 +248,6 @@
         "groupId" : "flow-contents-group",
         "id" : "0f52e330-fa25-31f5-8f8d-a171694c626e",
         "name" : "Set webhook JSON payload as attributes",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "c1b57a80-e537-3be1-ac74-fc722be203cf",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "2e514f89-1d39-3654-9883-f684fcd3b17d",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "unmatched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "5873e9a3-82fc-320e-b4fc-c99be210567f",
-        "name" : "Set attributes from BRREG response",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -324,36 +319,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "ffeb9e59-a382-33ab-8d0b-4fca7ee308f5",
-        "name" : "SIF UpdateCase and Customfield BRREG Lookup with BRREG info",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "2c911e73-7423-3f27-90af-db09adb00b59",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "success" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "74d86d63-fce5-3656-b12d-799b55dd9402",
-        "name" : "Payload UpdateCase",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "2f9d112e-b556-34d1-8e52-e67af19aa0bd",
         "name" : "Funnel",
         "type" : "FUNNEL"
@@ -373,6 +338,36 @@
         "groupId" : "flow-contents-group",
         "id" : "901589f9-f8cf-335b-acbf-fe7e3687f804",
         "name" : "Payload GetCases",
+        "type" : "PROCESSOR"
+      },
+      "zIndex" : 0
+    }, {
+      "backPressureDataSizeThreshold" : "1 GB",
+      "backPressureObjectThreshold" : 10000,
+      "bends" : [ ],
+      "componentType" : "CONNECTION",
+      "destination" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "ffeb9e59-a382-33ab-8d0b-4fca7ee308f5",
+        "name" : "SIF UpdateCase and Customfield BRREG Lookup with BRREG info",
+        "type" : "PROCESSOR"
+      },
+      "flowFileExpiration" : "0 sec",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "2c911e73-7423-3f27-90af-db09adb00b59",
+      "labelIndex" : 0,
+      "loadBalanceCompression" : "DO_NOT_COMPRESS",
+      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
+      "name" : "",
+      "partitioningAttribute" : "",
+      "prioritizers" : [ ],
+      "selectedRelationships" : [ "success" ],
+      "source" : {
+        "comments" : "",
+        "groupId" : "flow-contents-group",
+        "id" : "74d86d63-fce5-3656-b12d-799b55dd9402",
+        "name" : "Payload UpdateCase",
         "type" : "PROCESSOR"
       },
       "zIndex" : 0
@@ -564,36 +559,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "55148bcf-f53c-3f30-9921-390f249d0400",
-        "name" : "ReplaceText",
-        "type" : "PROCESSOR"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "f143dad7-362b-3e7a-89cd-6102def4e2d8",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "matched" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "140a101e-35f4-3602-b918-fa6d54b58647",
-        "name" : "Only process Case Insert",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "195cc439-a843-3bf2-8a38-2fb011ac0d3b",
         "name" : "Funnel",
         "type" : "FUNNEL"
@@ -714,36 +679,6 @@
       "destination" : {
         "comments" : "",
         "groupId" : "flow-contents-group",
-        "id" : "45130b15-b299-33ee-8de5-b4127d955603",
-        "name" : "Funnel",
-        "type" : "FUNNEL"
-      },
-      "flowFileExpiration" : "0 sec",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "b9ff06c6-fe15-3c94-b9e2-a7a8d04f3c83",
-      "labelIndex" : 0,
-      "loadBalanceCompression" : "DO_NOT_COMPRESS",
-      "loadBalanceStrategy" : "DO_NOT_LOAD_BALANCE",
-      "name" : "",
-      "partitioningAttribute" : "",
-      "prioritizers" : [ ],
-      "selectedRelationships" : [ "BRREGnotSet" ],
-      "source" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
-        "id" : "36ecac56-c21b-3ca5-af8b-0f821eb730bd",
-        "name" : "Only do BRREG lookup of BRREGID is set",
-        "type" : "PROCESSOR"
-      },
-      "zIndex" : 0
-    }, {
-      "backPressureDataSizeThreshold" : "1 GB",
-      "backPressureObjectThreshold" : 10000,
-      "bends" : [ ],
-      "componentType" : "CONNECTION",
-      "destination" : {
-        "comments" : "",
-        "groupId" : "flow-contents-group",
         "id" : "140a101e-35f4-3602-b918-fa6d54b58647",
         "name" : "Only process Case Insert",
         "type" : "PROCESSOR"
@@ -832,7 +767,7 @@
       "bundle" : {
         "artifact" : "nifi-ssl-context-service-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "CONTROLLER_SERVICE",
@@ -840,16 +775,23 @@
         "bundle" : {
           "artifact" : "nifi-standard-services-api-nar",
           "group" : "org.apache.nifi",
-          "version" : "2.0.0-M4"
+          "version" : "2.1.0"
         },
         "type" : "org.apache.nifi.ssl.SSLContextService"
       }, {
         "bundle" : {
           "artifact" : "nifi-standard-services-api-nar",
           "group" : "org.apache.nifi",
-          "version" : "2.0.0-M4"
+          "version" : "2.1.0"
         },
         "type" : "org.apache.nifi.ssl.RestrictedSSLContextService"
+      }, {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.1.0"
+        },
+        "type" : "org.apache.nifi.ssl.SSLContextProvider"
       } ],
       "groupIdentifier" : "flow-contents-group",
       "identifier" : "aeb86e04-8928-3415-a83a-aeb0edb2695e",
@@ -858,8 +800,8 @@
         "Truststore Type" : "JKS",
         "SSL Protocol" : "TLS",
         "Keystore Type" : "JKS",
-        "Truststore Filename" : "/nifi/nifi-2.0.0-M4/conf/truststore.jks",
-        "Keystore Filename" : "/nifi/nifi-2.0.0-M4/conf/nifi_cert.jks"
+        "Truststore Filename" : "/nifi/nifi-2.1.0/conf/truststore.jks",
+        "Keystore Filename" : "/nifi/nifi-2.1.0/conf/nifi_cert.jks"
       },
       "propertyDescriptors" : {
         "Truststore Type" : {
@@ -929,17 +871,54 @@
       },
       "scheduledState" : "DISABLED",
       "type" : "org.apache.nifi.ssl.StandardRestrictedSSLContextService"
+    }, {
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-http-context-map-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.1.0"
+      },
+      "comments" : "",
+      "componentType" : "CONTROLLER_SERVICE",
+      "controllerServiceApis" : [ {
+        "bundle" : {
+          "artifact" : "nifi-standard-services-api-nar",
+          "group" : "org.apache.nifi",
+          "version" : "2.1.0"
+        },
+        "type" : "org.apache.nifi.http.HttpContextMap"
+      } ],
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "9ac034d7-db8d-3fce-b4f7-7293a91b7601",
+      "name" : "StandardHttpContextMap",
+      "properties" : {
+        "Request Expiration" : "1 min",
+        "Maximum Outstanding Requests" : "5000"
+      },
+      "propertyDescriptors" : {
+        "Request Expiration" : {
+          "displayName" : "Request Expiration",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Expiration",
+          "sensitive" : false
+        },
+        "Maximum Outstanding Requests" : {
+          "displayName" : "Maximum Outstanding Requests",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Maximum Outstanding Requests",
+          "sensitive" : false
+        }
+      },
+      "scheduledState" : "DISABLED",
+      "type" : "org.apache.nifi.http.StandardHttpContextMap"
     } ],
     "defaultBackPressureDataSizeThreshold" : "1 GB",
     "defaultBackPressureObjectThreshold" : 10000,
     "defaultFlowFileExpiration" : "0 sec",
     "executionEngine" : "INHERITED",
-    "externalControllerServiceReferences" : {
-      "cd9ca43e-913b-3412-ab63-81476f4b9e6f" : {
-        "identifier" : "cd9ca43e-913b-3412-ab63-81476f4b9e6f",
-        "name" : "StandardHttpContextMap"
-      }
-    },
+    "externalControllerServiceReferences" : { },
     "flowFileConcurrency" : "UNBOUNDED",
     "flowFileOutboundPolicy" : "STREAM_WHEN_AVAILABLE",
     "funnels" : [ {
@@ -949,14 +928,6 @@
       "position" : {
         "x" : -3088.0,
         "y" : 1200.0
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "45130b15-b299-33ee-8de5-b4127d955603",
-      "position" : {
-        "x" : -3320.0,
-        "y" : 176.0
       }
     }, {
       "componentType" : "FUNNEL",
@@ -985,14 +956,6 @@
     }, {
       "componentType" : "FUNNEL",
       "groupIdentifier" : "flow-contents-group",
-      "identifier" : "c1b57a80-e537-3be1-ac74-fc722be203cf",
-      "position" : {
-        "x" : -1917.5,
-        "y" : 769.2592592592592
-      }
-    }, {
-      "componentType" : "FUNNEL",
-      "groupIdentifier" : "flow-contents-group",
       "identifier" : "195cc439-a843-3bf2-8a38-2fb011ac0d3b",
       "position" : {
         "x" : -1792.0,
@@ -1013,6 +976,14 @@
       "position" : {
         "x" : -3112.0,
         "y" : 304.0
+      }
+    }, {
+      "componentType" : "FUNNEL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "c1b57a80-e537-3be1-ac74-fc722be203cf",
+      "position" : {
+        "x" : -1917.5,
+        "y" : 769.2592592592592
       }
     }, {
       "componentType" : "FUNNEL",
@@ -1073,7 +1044,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -1090,8 +1061,8 @@
       },
       "properties" : {
         "Destination" : "flowfile-attribute",
-        "Entity" : "$.Entity",
         "UID" : "$.UID",
+        "Entity" : "$.Entity",
         "Action" : "$.Action",
         "Recno" : "$.Recno",
         "Max String Length" : "20 MB",
@@ -1108,18 +1079,18 @@
           "name" : "Destination",
           "sensitive" : false
         },
-        "Entity" : {
-          "displayName" : "Entity",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "Entity",
-          "sensitive" : false
-        },
         "UID" : {
           "displayName" : "UID",
           "dynamic" : true,
           "identifiesControllerService" : false,
           "name" : "UID",
+          "sensitive" : false
+        },
+        "Entity" : {
+          "displayName" : "Entity",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "Entity",
           "sensitive" : false
         },
         "Action" : {
@@ -1188,7 +1159,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -1258,6 +1229,13 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Request Chunked Transfer-Encoding Enabled",
+          "sensitive" : false
+        },
+        "Response Header Request Attributes Prefix" : {
+          "displayName" : "Response Header Request Attributes Prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Header Request Attributes Prefix",
           "sensitive" : false
         },
         "HTTP/2 Disabled" : {
@@ -1494,7 +1472,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -1599,7 +1577,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -1754,7 +1732,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -1823,6 +1801,13 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Request Chunked Transfer-Encoding Enabled",
+          "sensitive" : false
+        },
+        "Response Header Request Attributes Prefix" : {
+          "displayName" : "Response Header Request Attributes Prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Header Request Attributes Prefix",
           "sensitive" : false
         },
         "HTTP/2 Disabled" : {
@@ -2052,7 +2037,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2157,58 +2142,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
-      },
-      "comments" : "",
-      "componentType" : "PROCESSOR",
-      "concurrentlySchedulableTaskCount" : 1,
-      "executionNode" : "ALL",
-      "groupIdentifier" : "flow-contents-group",
-      "identifier" : "36ecac56-c21b-3ca5-af8b-0f821eb730bd",
-      "maxBackoffPeriod" : "10 mins",
-      "name" : "Only do BRREG lookup of BRREGID is set",
-      "penaltyDuration" : "30 sec",
-      "position" : {
-        "x" : -2648.0,
-        "y" : 136.0
-      },
-      "properties" : {
-        "Routing Strategy" : "Route to Property name",
-        "BRREGnotSet" : "${BRREGID:isEmpty()}"
-      },
-      "propertyDescriptors" : {
-        "Routing Strategy" : {
-          "displayName" : "Routing Strategy",
-          "dynamic" : false,
-          "identifiesControllerService" : false,
-          "name" : "Routing Strategy",
-          "sensitive" : false
-        },
-        "BRREGnotSet" : {
-          "displayName" : "BRREGnotSet",
-          "dynamic" : true,
-          "identifiesControllerService" : false,
-          "name" : "BRREGnotSet",
-          "sensitive" : false
-        }
-      },
-      "retriedRelationships" : [ ],
-      "retryCount" : 10,
-      "runDurationMillis" : 25,
-      "scheduledState" : "ENABLED",
-      "schedulingPeriod" : "0 sec",
-      "schedulingStrategy" : "TIMER_DRIVEN",
-      "style" : { },
-      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
-      "yieldDuration" : "1 sec"
-    }, {
-      "autoTerminatedRelationships" : [ ],
-      "backoffMechanism" : "PENALIZE_FLOWFILE",
-      "bulletinLevel" : "WARN",
-      "bundle" : {
-        "artifact" : "nifi-standard-nar",
-        "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2261,13 +2195,64 @@
       "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
       "yieldDuration" : "1 sec"
     }, {
+      "autoTerminatedRelationships" : [ "BRREGnotSet" ],
+      "backoffMechanism" : "PENALIZE_FLOWFILE",
+      "bulletinLevel" : "WARN",
+      "bundle" : {
+        "artifact" : "nifi-standard-nar",
+        "group" : "org.apache.nifi",
+        "version" : "2.1.0"
+      },
+      "comments" : "",
+      "componentType" : "PROCESSOR",
+      "concurrentlySchedulableTaskCount" : 1,
+      "executionNode" : "ALL",
+      "groupIdentifier" : "flow-contents-group",
+      "identifier" : "36ecac56-c21b-3ca5-af8b-0f821eb730bd",
+      "maxBackoffPeriod" : "10 mins",
+      "name" : "Only do BRREG lookup of BRREGID is set",
+      "penaltyDuration" : "30 sec",
+      "position" : {
+        "x" : -2648.0,
+        "y" : 136.0
+      },
+      "properties" : {
+        "Routing Strategy" : "Route to Property name",
+        "BRREGnotSet" : "${BRREGID:isEmpty()}"
+      },
+      "propertyDescriptors" : {
+        "Routing Strategy" : {
+          "displayName" : "Routing Strategy",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Routing Strategy",
+          "sensitive" : false
+        },
+        "BRREGnotSet" : {
+          "displayName" : "BRREGnotSet",
+          "dynamic" : true,
+          "identifiesControllerService" : false,
+          "name" : "BRREGnotSet",
+          "sensitive" : false
+        }
+      },
+      "retriedRelationships" : [ ],
+      "retryCount" : 10,
+      "runDurationMillis" : 25,
+      "scheduledState" : "ENABLED",
+      "schedulingPeriod" : "0 sec",
+      "schedulingStrategy" : "TIMER_DRIVEN",
+      "style" : { },
+      "type" : "org.apache.nifi.processors.standard.RouteOnAttribute",
+      "yieldDuration" : "1 sec"
+    }, {
       "autoTerminatedRelationships" : [ ],
       "backoffMechanism" : "PENALIZE_FLOWFILE",
       "bulletinLevel" : "WARN",
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2283,7 +2268,7 @@
         "y" : -1176.0
       },
       "properties" : {
-        "HTTP Context Map" : "cd9ca43e-913b-3412-ab63-81476f4b9e6f",
+        "HTTP Context Map" : "9ac034d7-db8d-3fce-b4f7-7293a91b7601",
         "Content-type" : "application/json",
         "X-NiFi-UID" : "${uuid}",
         "HTTP Status Code" : "200"
@@ -2341,7 +2326,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2446,7 +2431,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2458,8 +2443,8 @@
       "name" : "ReplaceText",
       "penaltyDuration" : "30 sec",
       "position" : {
-        "x" : -3072.0,
-        "y" : -656.0
+        "x" : -3320.0,
+        "y" : -648.0
       },
       "properties" : {
         "Regular Expression" : "(?s)(^.*$)",
@@ -2551,7 +2536,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2571,10 +2556,11 @@
         "Allow POST" : "true",
         "Default URL Character Set" : "UTF-8",
         "Allow DELETE" : "true",
+        "Request Header Maximum Size" : "8 KB",
         "Maximum Threads" : "200",
         "HTTP Protocols" : "HTTP_1_1",
         "container-queue-size" : "50",
-        "HTTP Context Map" : "cd9ca43e-913b-3412-ab63-81476f4b9e6f",
+        "HTTP Context Map" : "9ac034d7-db8d-3fce-b4f7-7293a91b7601",
         "multipart-read-buffer-size" : "512 KB",
         "SSL Context Service" : "aeb86e04-8928-3415-a83a-aeb0edb2695e",
         "Allow OPTIONS" : "false",
@@ -2626,6 +2612,13 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Allow DELETE",
+          "sensitive" : false
+        },
+        "Request Header Maximum Size" : {
+          "displayName" : "Request Header Maximum Size",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Request Header Maximum Size",
           "sensitive" : false
         },
         "Maximum Threads" : {
@@ -2743,7 +2736,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2834,7 +2827,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -2939,7 +2932,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -3062,7 +3055,7 @@
       "bundle" : {
         "artifact" : "nifi-standard-nar",
         "group" : "org.apache.nifi",
-        "version" : "2.0.0-M4"
+        "version" : "2.1.0"
       },
       "comments" : "",
       "componentType" : "PROCESSOR",
@@ -3132,6 +3125,13 @@
           "dynamic" : false,
           "identifiesControllerService" : false,
           "name" : "Request Chunked Transfer-Encoding Enabled",
+          "sensitive" : false
+        },
+        "Response Header Request Attributes Prefix" : {
+          "displayName" : "Response Header Request Attributes Prefix",
+          "dynamic" : false,
+          "identifiesControllerService" : false,
+          "name" : "Response Header Request Attributes Prefix",
           "sensitive" : false
         },
         "HTTP/2 Disabled" : {
