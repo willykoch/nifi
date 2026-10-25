@@ -1,0 +1,829 @@
+{
+  "snapshotMetadata": {
+    "version": 1,
+    "comments": "Initial Apache NiFi file gateway upload flow",
+    "author": "willy",
+    "flowIdentifier": "file-gateway-upload",
+    "timestamp": 1792957672569
+  },
+  "flow": {
+    "identifier": "file-gateway-upload",
+    "name": "File Gateway Upload",
+    "description": "Poll PDFs from the inbound data directory, calculate SHA-256, PUT to the file gateway, and append status, URI, and digest to a CSV log.",
+    "createdTimestamp": 1792957672569,
+    "lastModifiedTimestamp": 1792957672569,
+    "versionCount": 0
+  },
+  "flowContents": {
+    "identifier": "flow-contents-group",
+    "name": "File Gateway Upload",
+    "comments": "Step 1: upload and record response. A later flow version can GET the returned public URI and compare its checksum.",
+    "position": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "processGroups": [],
+    "remoteProcessGroups": [],
+    "processors": [
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6301",
+        "name": "Get PDFs from Data Directory",
+        "comments": "Reads PDFs from /data/inbound inside the NiFi container. Keep Source File is enabled.",
+        "position": {
+          "x": 0.0,
+          "y": 180.0
+        },
+        "bundle": {
+          "group": "org.apache.nifi",
+          "artifact": "nifi-standard-nar",
+          "version": "2.11.0"
+        },
+        "style": {},
+        "type": "org.apache.nifi.processors.standard.GetFile",
+        "properties": {
+          "Input Directory": "/data/inbound",
+          "File Filter": "(?i)^.*\\.pdf$",
+          "Batch Size": "10",
+          "Keep Source File": "true",
+          "Recurse Subdirectories": "false",
+          "Minimum File Age": "0 sec",
+          "Ignore Hidden Files": "true",
+          "Polling Interval": "10 sec"
+        },
+        "schedulingPeriod": "10 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "autoTerminatedRelationships": [
+          "failure"
+        ],
+        "scheduledState": "ENABLED",
+        "componentType": "PROCESSOR",
+        "groupIdentifier": "flow-contents-group",
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins",
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "propertyDescriptors": {
+          "Input Directory": {
+            "name": "Input Directory",
+            "displayName": "Input Directory",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "File Filter": {
+            "name": "File Filter",
+            "displayName": "File Filter",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Batch Size": {
+            "name": "Batch Size",
+            "displayName": "Batch Size",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Keep Source File": {
+            "name": "Keep Source File",
+            "displayName": "Keep Source File",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Recurse Subdirectories": {
+            "name": "Recurse Subdirectories",
+            "displayName": "Recurse Subdirectories",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Minimum File Age": {
+            "name": "Minimum File Age",
+            "displayName": "Minimum File Age",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Ignore Hidden Files": {
+            "name": "Ignore Hidden Files",
+            "displayName": "Ignore Hidden Files",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Polling Interval": {
+            "name": "Polling Interval",
+            "displayName": "Polling Interval",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          }
+        }
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6302",
+        "name": "Calculate SHA-256",
+        "comments": "Hashes the original PDF content without replacing it.",
+        "position": {
+          "x": 280.0,
+          "y": 180.0
+        },
+        "bundle": {
+          "group": "org.apache.nifi",
+          "artifact": "nifi-standard-nar",
+          "version": "2.11.0"
+        },
+        "style": {},
+        "type": "org.apache.nifi.processors.standard.CryptographicHashContent",
+        "properties": {
+          "Hash Algorithm": "SHA-256",
+          "Fail When Content Empty": "true"
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "autoTerminatedRelationships": [
+          "failure"
+        ],
+        "scheduledState": "ENABLED",
+        "componentType": "PROCESSOR",
+        "groupIdentifier": "flow-contents-group",
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins",
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "propertyDescriptors": {
+          "Hash Algorithm": {
+            "name": "Hash Algorithm",
+            "displayName": "Hash Algorithm",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Fail When Content Empty": {
+            "name": "Fail When Content Empty",
+            "displayName": "Fail When Content Empty",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          }
+        }
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6303",
+        "name": "Prepare Upload Attributes",
+        "comments": "Preserves filename and checksum as attributes for the response logging branch.",
+        "position": {
+          "x": 560.0,
+          "y": 180.0
+        },
+        "bundle": {
+          "group": "org.apache.nifi",
+          "artifact": "nifi-update-attribute-nar",
+          "version": "2.11.0"
+        },
+        "style": {},
+        "type": "org.apache.nifi.processors.attributes.UpdateAttribute",
+        "properties": {
+          "source.filename": "${filename}",
+          "source.sha256": "${content_SHA-256}"
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "autoTerminatedRelationships": [
+          "unmatched"
+        ],
+        "scheduledState": "ENABLED",
+        "componentType": "PROCESSOR",
+        "groupIdentifier": "flow-contents-group",
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins",
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "propertyDescriptors": {
+          "source.filename": {
+            "name": "source.filename",
+            "displayName": "source.filename",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": true
+          },
+          "source.sha256": {
+            "name": "source.sha256",
+            "displayName": "source.sha256",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": true
+          }
+        }
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6304",
+        "name": "PUT PDF to File Gateway",
+        "comments": "PUTs the unchanged PDF bytes. Configure the sensitive gateway.password parameter after import.",
+        "position": {
+          "x": 840.0,
+          "y": 180.0
+        },
+        "bundle": {
+          "group": "org.apache.nifi",
+          "artifact": "nifi-standard-nar",
+          "version": "2.11.0"
+        },
+        "style": {},
+        "type": "org.apache.nifi.processors.standard.InvokeHTTP",
+        "properties": {
+          "HTTP Method": "PUT",
+          "HTTP URL": "#{gateway.put.url}",
+          "Request Username": "#{gateway.username}",
+          "Request Password": "#{gateway.password}",
+          "Request Content-Type": "application/octet-stream",
+          "Request Body Enabled": "true",
+          "Request Chunked Transfer-Encoding Enabled": "false",
+          "Request Digest Authentication Enabled": "false",
+          "Response Body Ignored": "false",
+          "Response Generation Required": "false",
+          "Response Redirects Enabled": "true"
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "autoTerminatedRelationships": [
+          "Original",
+          "Retry",
+          "No Retry",
+          "Failure"
+        ],
+        "scheduledState": "ENABLED",
+        "componentType": "PROCESSOR",
+        "groupIdentifier": "flow-contents-group",
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins",
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "propertyDescriptors": {
+          "HTTP Method": {
+            "name": "HTTP Method",
+            "displayName": "HTTP Method",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "HTTP URL": {
+            "name": "HTTP URL",
+            "displayName": "HTTP URL",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Request Username": {
+            "name": "Request Username",
+            "displayName": "Request Username",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Request Password": {
+            "name": "Request Password",
+            "displayName": "Request Password",
+            "identifiesControllerService": false,
+            "sensitive": true,
+            "dynamic": false
+          },
+          "Request Content-Type": {
+            "name": "Request Content-Type",
+            "displayName": "Request Content-Type",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Request Body Enabled": {
+            "name": "Request Body Enabled",
+            "displayName": "Request Body Enabled",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Request Chunked Transfer-Encoding Enabled": {
+            "name": "Request Chunked Transfer-Encoding Enabled",
+            "displayName": "Request Chunked Transfer-Encoding Enabled",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Request Digest Authentication Enabled": {
+            "name": "Request Digest Authentication Enabled",
+            "displayName": "Request Digest Authentication Enabled",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Response Body Ignored": {
+            "name": "Response Body Ignored",
+            "displayName": "Response Body Ignored",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Response Generation Required": {
+            "name": "Response Generation Required",
+            "displayName": "Response Generation Required",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Response Redirects Enabled": {
+            "name": "Response Redirects Enabled",
+            "displayName": "Response Redirects Enabled",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          }
+        }
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6305",
+        "name": "Extract Returned URI",
+        "comments": "Extracts URI from the successful PUT response JSON.",
+        "position": {
+          "x": 1120.0,
+          "y": 180.0
+        },
+        "bundle": {
+          "group": "org.apache.nifi",
+          "artifact": "nifi-standard-nar",
+          "version": "2.11.0"
+        },
+        "style": {},
+        "type": "org.apache.nifi.processors.standard.EvaluateJsonPath",
+        "properties": {
+          "Destination": "flowfile-attribute",
+          "Return Type": "scalar",
+          "Path Not Found Behavior": "ignore",
+          "Max String Length": "20 MB",
+          "gateway.uri": "$.URI"
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "autoTerminatedRelationships": [
+          "unmatched",
+          "failure"
+        ],
+        "scheduledState": "ENABLED",
+        "componentType": "PROCESSOR",
+        "groupIdentifier": "flow-contents-group",
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins",
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "propertyDescriptors": {
+          "Destination": {
+            "name": "Destination",
+            "displayName": "Destination",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Return Type": {
+            "name": "Return Type",
+            "displayName": "Return Type",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Path Not Found Behavior": {
+            "name": "Path Not Found Behavior",
+            "displayName": "Path Not Found Behavior",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Max String Length": {
+            "name": "Max String Length",
+            "displayName": "Max String Length",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "gateway.uri": {
+            "name": "gateway.uri",
+            "displayName": "gateway.uri",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": true
+          }
+        }
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6306",
+        "name": "Build CSV Log Row",
+        "comments": "CSV-escapes filename, checksum, HTTP response, and returned URI.",
+        "position": {
+          "x": 1400.0,
+          "y": 180.0
+        },
+        "bundle": {
+          "group": "org.apache.nifi",
+          "artifact": "nifi-standard-nar",
+          "version": "2.11.0"
+        },
+        "style": {},
+        "type": "org.apache.nifi.processors.standard.AttributesToCSV",
+        "properties": {
+          "Attribute List": "source.filename,source.sha256,invokehttp.status.code,invokehttp.status.message,gateway.uri",
+          "Destination": "flowfile-content",
+          "Include Core Attributes": "false",
+          "Include Schema": "false",
+          "Null Value": "false"
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "autoTerminatedRelationships": [
+          "failure"
+        ],
+        "scheduledState": "ENABLED",
+        "componentType": "PROCESSOR",
+        "groupIdentifier": "flow-contents-group",
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins",
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "propertyDescriptors": {
+          "Attribute List": {
+            "name": "Attribute List",
+            "displayName": "Attribute List",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Destination": {
+            "name": "Destination",
+            "displayName": "Destination",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Include Core Attributes": {
+            "name": "Include Core Attributes",
+            "displayName": "Include Core Attributes",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Include Schema": {
+            "name": "Include Schema",
+            "displayName": "Include Schema",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Null Value": {
+            "name": "Null Value",
+            "displayName": "Null Value",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          }
+        }
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6307",
+        "name": "Append CSV Log",
+        "comments": "Appends one CSV row to /data/log/file-gateway-uploads.csv. Creates the header when the file is absent or empty.",
+        "position": {
+          "x": 1680.0,
+          "y": 180.0
+        },
+        "bundle": {
+          "group": "org.apache.nifi",
+          "artifact": "nifi-groovyx-nar",
+          "version": "2.11.0"
+        },
+        "style": {},
+        "type": "org.apache.nifi.processors.groovyx.ExecuteGroovyScript",
+        "properties": {
+          "Script Body": "import java.nio.file.Files\nimport java.nio.file.Paths\nimport java.nio.file.StandardOpenOption\n\ndef flowFile = session.get()\nif (flowFile == null) return\n\ndef path = Paths.get('/data/log/file-gateway-uploads.csv')\ntry {\n    byte[] row = flowFile.read().bytes\n    Files.createDirectories(path.getParent())\n    if (!Files.exists(path) || Files.size(path) == 0) {\n        byte[] header = ('filename,sha256,http_status,http_message,uri' + System.lineSeparator()).getBytes('UTF-8')\n        Files.write(path, header, StandardOpenOption.CREATE, StandardOpenOption.APPEND)\n    }\n    byte[] newline = System.lineSeparator().getBytes('UTF-8')\n    byte[] line = new byte[row.length + newline.length]\n    System.arraycopy(row, 0, line, 0, row.length)\n    System.arraycopy(newline, 0, line, row.length, newline.length)\n    Files.write(path, line, StandardOpenOption.CREATE, StandardOpenOption.APPEND)\n    REL_SUCCESS << flowFile\n} catch (Exception e) {\n    log.error('Could not append upload row to CSV', e)\n    REL_FAILURE << flowFile\n}",
+          "Failure Strategy": "transfer to failure"
+        },
+        "schedulingPeriod": "0 sec",
+        "schedulingStrategy": "TIMER_DRIVEN",
+        "executionNode": "ALL",
+        "penaltyDuration": "30 sec",
+        "yieldDuration": "1 sec",
+        "bulletinLevel": "WARN",
+        "runDurationMillis": 0,
+        "concurrentlySchedulableTaskCount": 1,
+        "autoTerminatedRelationships": [
+          "failure"
+        ],
+        "scheduledState": "ENABLED",
+        "componentType": "PROCESSOR",
+        "groupIdentifier": "flow-contents-group",
+        "backoffMechanism": "PENALIZE_FLOWFILE",
+        "maxBackoffPeriod": "10 mins",
+        "retryCount": 10,
+        "retriedRelationships": [],
+        "propertyDescriptors": {
+          "Script Body": {
+            "name": "Script Body",
+            "displayName": "Script Body",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          },
+          "Failure Strategy": {
+            "name": "Failure Strategy",
+            "displayName": "Failure Strategy",
+            "identifiesControllerService": false,
+            "sensitive": false,
+            "dynamic": false
+          }
+        }
+      }
+    ],
+    "inputPorts": [],
+    "outputPorts": [],
+    "connections": [
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6311",
+        "name": "",
+        "source": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6301",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Get PDFs from Data Directory",
+          "comments": ""
+        },
+        "destination": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6302",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Calculate SHA-256",
+          "comments": ""
+        },
+        "labelIndex": 1,
+        "zIndex": 0,
+        "selectedRelationships": [
+          "success"
+        ],
+        "backPressureObjectThreshold": 10000,
+        "backPressureDataSizeThreshold": "1 GB",
+        "flowFileExpiration": "0 sec",
+        "prioritizers": [],
+        "bends": [],
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "partitioningAttribute": "",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "componentType": "CONNECTION",
+        "groupIdentifier": "flow-contents-group"
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6312",
+        "name": "",
+        "source": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6302",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Calculate SHA-256",
+          "comments": ""
+        },
+        "destination": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6303",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Prepare Upload Attributes",
+          "comments": ""
+        },
+        "labelIndex": 1,
+        "zIndex": 0,
+        "selectedRelationships": [
+          "success"
+        ],
+        "backPressureObjectThreshold": 10000,
+        "backPressureDataSizeThreshold": "1 GB",
+        "flowFileExpiration": "0 sec",
+        "prioritizers": [],
+        "bends": [],
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "partitioningAttribute": "",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "componentType": "CONNECTION",
+        "groupIdentifier": "flow-contents-group"
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6313",
+        "name": "",
+        "source": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6303",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Prepare Upload Attributes",
+          "comments": ""
+        },
+        "destination": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6304",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "PUT PDF to File Gateway",
+          "comments": ""
+        },
+        "labelIndex": 1,
+        "zIndex": 0,
+        "selectedRelationships": [
+          "success"
+        ],
+        "backPressureObjectThreshold": 10000,
+        "backPressureDataSizeThreshold": "1 GB",
+        "flowFileExpiration": "0 sec",
+        "prioritizers": [],
+        "bends": [],
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "partitioningAttribute": "",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "componentType": "CONNECTION",
+        "groupIdentifier": "flow-contents-group"
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6314",
+        "name": "",
+        "source": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6304",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "PUT PDF to File Gateway",
+          "comments": ""
+        },
+        "destination": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6305",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Extract Returned URI",
+          "comments": ""
+        },
+        "labelIndex": 1,
+        "zIndex": 0,
+        "selectedRelationships": [
+          "Response"
+        ],
+        "backPressureObjectThreshold": 10000,
+        "backPressureDataSizeThreshold": "1 GB",
+        "flowFileExpiration": "0 sec",
+        "prioritizers": [],
+        "bends": [],
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "partitioningAttribute": "",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "componentType": "CONNECTION",
+        "groupIdentifier": "flow-contents-group"
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6315",
+        "name": "",
+        "source": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6305",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Extract Returned URI",
+          "comments": ""
+        },
+        "destination": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6306",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Build CSV Log Row",
+          "comments": ""
+        },
+        "labelIndex": 1,
+        "zIndex": 0,
+        "selectedRelationships": [
+          "matched"
+        ],
+        "backPressureObjectThreshold": 10000,
+        "backPressureDataSizeThreshold": "1 GB",
+        "flowFileExpiration": "0 sec",
+        "prioritizers": [],
+        "bends": [],
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "partitioningAttribute": "",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "componentType": "CONNECTION",
+        "groupIdentifier": "flow-contents-group"
+      },
+      {
+        "identifier": "8c860e50-19c9-4eca-ad6a-47b179ef6316",
+        "name": "",
+        "source": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6306",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Build CSV Log Row",
+          "comments": ""
+        },
+        "destination": {
+          "id": "8c860e50-19c9-4eca-ad6a-47b179ef6307",
+          "type": "PROCESSOR",
+          "groupId": "flow-contents-group",
+          "name": "Append CSV Log",
+          "comments": ""
+        },
+        "labelIndex": 1,
+        "zIndex": 0,
+        "selectedRelationships": [
+          "success"
+        ],
+        "backPressureObjectThreshold": 10000,
+        "backPressureDataSizeThreshold": "1 GB",
+        "flowFileExpiration": "0 sec",
+        "prioritizers": [],
+        "bends": [],
+        "loadBalanceStrategy": "DO_NOT_LOAD_BALANCE",
+        "partitioningAttribute": "",
+        "loadBalanceCompression": "DO_NOT_COMPRESS",
+        "componentType": "CONNECTION",
+        "groupIdentifier": "flow-contents-group"
+      }
+    ],
+    "controllerServices": [],
+    "funnels": [],
+    "labels": [],
+    "defaultFlowFileExpiration": "0 sec",
+    "flowFileConcurrency": "UNBOUNDED",
+    "flowFileOutboundPolicy": "STREAM_WHEN_AVAILABLE",
+    "parameterContextName": "File Gateway Upload Parameters",
+    "componentType": "PROCESS_GROUP",
+    "executionEngine": "INHERITED",
+    "defaultBackPressureDataSizeThreshold": "1 GB",
+    "defaultBackPressureObjectThreshold": 10000,
+    "maxConcurrentTasks": 1,
+    "statelessFlowTimeout": "1 min",
+    "scheduledState": "ENABLED",
+    "externalControllerServiceReferences": {}
+  },
+  "parameterContexts": {
+    "File Gateway Upload Parameters": {
+      "name": "File Gateway Upload Parameters",
+      "description": "Gateway configuration for the upload flow. Set the sensitive password after importing.",
+      "parameters": [
+        {
+          "name": "gateway.username",
+          "description": "File gateway Basic authentication username",
+          "sensitive": false,
+          "value": "0101"
+        },
+        {
+          "name": "gateway.password",
+          "description": "File gateway Basic authentication password; enter in NiFi after import",
+          "sensitive": true,
+          "value": null
+        },
+        {
+          "name": "gateway.put.url",
+          "description": "PUT endpoint for the remote file",
+          "sensitive": false,
+          "value": "https://void.0101.no/fileapi/Upcloud_norway.pdf"
+        }
+      ],
+      "componentType": "PARAMETER_CONTEXT",
+      "inheritedParameterContexts": []
+    }
+  },
+  "flowEncodingVersion": "1.0",
+  "latest": false,
+  "externalControllerServices": {},
+  "parameterProviders": {}
+}
